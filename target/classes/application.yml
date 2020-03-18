@@ -1,0 +1,24 @@
+server:
+  port: 5555
+
+spring:
+  application:
+    name: zuulsvr
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://192.168.0.101:8761/eureka/
+
+#hystrix超时设置
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2500
